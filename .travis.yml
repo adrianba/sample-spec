@@ -7,6 +7,11 @@ install:
   - pip install pygments
   - pip install --editable ./bikeshed
   - bikeshed update
+  - git clone --depth=1 --branch=gh-pages https://github.com/adrianba/sample-spec-draft.git ./draft
 script:
-  bikeshed spec
-
+  bikeshed spec sample.bs ./draft/sample.html
+after_success:
+  cd ./draft
+  git add sample.html
+  git commit -m "Update"
+  git status
