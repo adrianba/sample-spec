@@ -2,13 +2,14 @@
 set -ev
 rm -rf out
 mkdir out
+STATUS=`git log -1 --pretty=oneline`
 cd out
 git init
 git config user.name "Travis-CI"
 git config user.email "noreply@example.com"
 cp ../sample.html .
 git add .
-git commit -m "Built by Travis-CI"
+git commit -m "Built by Travis-CI: $STATUS"
 git status
 
 GH_REPO="@github.com/adrianba/sample-spec-draft.git"
