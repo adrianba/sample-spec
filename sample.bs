@@ -11,6 +11,7 @@ Group: html
 
 <h2 id="intro">Introduction</h2>
 This is a sample specification built using Bikeshed.
+Updated at 11:02AM.
 
 <h2 id="security">Security Considerations</h2>
 Being secure is a good idea.
