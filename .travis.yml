@@ -1,20 +1,22 @@
 language: python
 python:
-  - "2.7"
+- '2.7'
 sudo: false
 branches:
   except:
-    - master
+  - master
   only:
-    - gh-pages
+  - gh-pages
 before_install:
-  - chmod 755 ./.deploy-output.sh
+- chmod 755 ./.deploy-output.sh
 install:
-  - git clone --depth=1 --branch=master https://github.com/tabatkins/bikeshed.git ./bikeshed
-  - pip install pygments
-  - pip install --editable ./bikeshed
-  - bikeshed update
-script:
-  bikeshed spec
+- git clone --depth=1 --branch=master https://github.com/tabatkins/bikeshed.git ./bikeshed
+- pip install pygments
+- pip install --editable ./bikeshed
+- bikeshed update
+script: bikeshed spec
 after_success:
-  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && ./.deploy-output.sh'
+- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && ./.deploy-output.sh'
+env:
+  global:
+    secure: To3i4wCn5QrI9zQSwlO7zxWFZTj3i9OFiUIjc9Ac2tkkTbbesCnGKCuTLI+ul2m3+JF6L95uxQvSx9tN07IOh7IyoEDTLp8m/nHcpvTG00fdO4gVcRaPCUhDkNn85zn+gGtivTtf7L+uDVzorXgv/6ri/c4mjW6MREDnLrTcwGLD+jstCNLZJ4k5eVo/tbjRDepNYf6EnE1aRxCc8SYyk7sHzkyg4mXhwal7IwRXjBCCYjgeVDO2v8/C6PkEqpK4wH8x3Pqv2v5C2UqoDO1M3MP0RcICyO6a4WxDF/eIZ4fTr743/YoD4xLF4peFHtmZlUWalKHCBgt6UvWPwdhHpA8SjBLdesvGwZteIZ1O46zQuWMchFh/wOVXwf+zgoCqcZlWgPXiElUcufp3az4IfW3LRCFh/KN582Wp9g7Th4kyT47jfsknoE58jR22z5owSU2O1VnGB1g9hAzJZTNnwLy/GNLEDDARpuvmb/pjrFXtaH8BHVEHZ/nijDcK3VlmgJzIWaeoNX7j8DxLcJGaSUyNxnL9aPzquhlXsrryOjI3xABc9gsO2oUozqKs5nzhoN2LbcbxX6UM+UoMoxdXcRKsUUS9ykvz820TVd/9UBrvXfV1C4fTbIEjhz9oJbG6LkQ0aVhJIlRSG2MjTr9Y66xKI7/SDbF8WMSidy0n4N8=
