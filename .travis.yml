@@ -7,16 +7,14 @@ branches:
     - master
   only:
     - gh-pages
+before_install:
+  - chmod 755 ./.deploy-output.sh
 install:
   - git clone --depth=1 --branch=master https://github.com/tabatkins/bikeshed.git ./bikeshed
   - pip install pygments
   - pip install --editable ./bikeshed
   - bikeshed update
-  - git clone --depth=1 --branch=gh-pages https://github.com/adrianba/sample-spec-draft.git ./draft
 script:
-  bikeshed spec sample.bs ./draft/sample.html
+  bikeshed spec
 after_success:
-  cd ./draft
-  git add sample.html
-  git commit -m "Update"
-  git status
+  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && ./.deploy-output.sh'
