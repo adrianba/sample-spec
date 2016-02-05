@@ -8,6 +8,7 @@ git init
 git config user.name "Travis-CI"
 git config user.email "noreply@example.com"
 cp ../sample.html .
+node ../tools/multipage.js sample.html .
 git add .
 git commit -m "Built by Travis-CI: $STATUS"
 git status
