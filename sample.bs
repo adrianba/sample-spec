@@ -17,6 +17,7 @@ This is a sample specification built using Bikeshed.
 <h3 id="goals">Goals</h3>
 <ul>
   <li>We should aim for something. Something high.</li>
+  <li>We want things to build quickly.</li>
 </ul>
 </section>
 </section>
