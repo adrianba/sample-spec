@@ -1,14 +1,12 @@
 #!/bin/bash
 set -ev
-rm -rf out
-mkdir out
 STATUS=`git log -1 --pretty=oneline`
 cd out
 git init
 git config user.name "Travis-CI"
-git config user.email "noreply@example.com"
+git config user.email "travis-ci"
 cp ../sample.html .
-node ../tools/multipage.js sample.html .
+ls
 git add .
 git commit -m "Built by Travis-CI: $STATUS"
 git status
