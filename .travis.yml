@@ -4,8 +4,8 @@ python:
 sudo: false
 cache:
   directories:
-    - $HOME/.cache/pip
-    - $HOME/build/sample-spec/tools/node_modules
+  - $HOME/.cache/pip
+  - tools/node_modules
 branches:
   only:
   - master
@@ -16,6 +16,9 @@ before_install:
 install:
 - git clone --depth=1 --branch=master https://github.com/tabatkins/bikeshed.git ./bikeshed
 - pip install pygments
+- pip install cssselect
+- pip install html5lib
+- pip install lxml
 - pip install --editable ./bikeshed
 - bikeshed update
 script: 'bikeshed spec && [ "${TRAVIS_PULL_REQUEST}" = "false" ] && ./.multipage-split.sh'
