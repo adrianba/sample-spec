@@ -2,6 +2,10 @@ language: python
 python:
 - '2.7'
 sudo: false
+cache:
+  directories:
+    - $HOME/.cache/pip
+    - $HOME/tools/node_modules
 branches:
   only:
   - master

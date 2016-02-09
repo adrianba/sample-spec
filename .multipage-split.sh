@@ -10,4 +10,4 @@ popd
 
 DIR=`pwd`
 
-node ./tools/multipage.js file://$DIR/sample.html ./out/
+node ./tools/multipage.js file:/$DIR/sample.html ./out/
