@@ -5,7 +5,7 @@ sudo: false
 cache:
   directories:
     - $HOME/.cache/pip
-    - $HOME/tools/node_modules
+    - $HOME/build/sample-spec/tools/node_modules
 branches:
   only:
   - master
